@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { PaymentStatus, Transaction } from '@/types'
+import { saveTransactions, loadTransactions } from '@/utils/storage'
 
 interface PaymentStore {
   status: PaymentStatus
@@ -44,15 +45,12 @@ export const usePaymentStore = create<PaymentStore>((set, get) => ({
       } else {
         updated.unshift(tx)
       }
-      localStorage.setItem('transactions', JSON.stringify(updated))
+      saveTransactions(updated)
       return { history: updated }
     })
   },
 
   loadHistoryFromStorage: () => {
-    const raw = localStorage.getItem('transactions')
-    if (raw) {
-      set({ history: JSON.parse(raw) as Transaction[] })
-    }
+   set({ history: loadTransactions() })
   },
 }))
