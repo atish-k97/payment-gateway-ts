@@ -1,8 +1,5 @@
-// hooks/usePayment.ts
-
 import { usePaymentStore } from '@/store/paymentStore'
 import { PaymentFormState, Transaction } from '@/types'
-import { detectCardType } from '@/utils/cardUtils'
 
 const MAX_RETRIES = 3
 const TIMEOUT_MS = 6000
