@@ -51,6 +51,7 @@ export const validateAmount = (amount: string): string | undefined => {
   const parsed = parseFloat(amount)
   if (isNaN(parsed)) return 'Amount must be a number'
   if (parsed <= 0) return 'Amount must be greater than 0'
+  if (parsed > 1000000) return 'Amount cannot exceed 10,00,000'
   return undefined
 }
 

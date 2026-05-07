@@ -1,5 +1,3 @@
-// types/index.ts
-
 export type PaymentStatus = 'idle' | 'processing' | 'success' | 'failed' | 'timeout'
 
 export type CardType = 'visa' | 'mastercard' | 'amex' | 'unknown'

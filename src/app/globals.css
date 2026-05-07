@@ -103,14 +103,25 @@ body {
 
 @media (min-width: 900px) {
   .page__layout {
-    grid-template-columns: 1.2fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: start;
   }
-}
 
-.page__primary,
-.page__secondary {
-  width: 100%;
+  @media (min-width: 900px) {
+    .page__layout {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .page__secondary {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
 }
 
 /* ─── Card Input Wrapper ─────────────────────────────────────────────────────── */
